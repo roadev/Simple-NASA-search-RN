@@ -1,41 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text } from 'react-native';
+import PropTypes from 'prop-types';
 import ContactForm from '../ContactForm';
 
-class Contact extends Component {
+const ContactList = ({ contacts }) => (
+  <View>
+      {
+        contacts.map(contact => (
+          <View>
+            <Text>{contact.name}</Text>
+            <Text>{contact.lastName}</Text>
+            <Text>{contact.age}</Text>
+            <Text>{contact.phone}</Text>
+          </View>
+        ))
+      }
+  </View>
+);
 
-  state = {
-    contacts: []
-  };
+ContactList.propTypes = {
+  contacts: PropTypes.array.isRequired,
+};
 
-  createContact = contact => {
-    const contacts = [...this.state.contacts, contact];
-    this.setState({ contacts });
-  }
-
-
-
-  render() {
-
-    const contacts = this.state.contacts.map(contact => (
-      <View>
-        <Text>{contact.name}</Text>
-        <Text>{contact.lastName}</Text>
-        <Text>{contact.age}</Text>
-        <Text>{contact.phone}</Text>
-      </View>
-    ));
-
-    return (
-      <View>
-        <ContactForm createContact={this.createContact} />
-        <View>
-          {contacts}
-        </View>
-      </View>
-    );
-  }
-
-}
-
-export default Contact;
+export default ContactList;
