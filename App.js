@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, Button } from 'react-native';
 
 class Counter extends Component {
+
+  static propTypes = {
+    count: PropTypes.number
+  };
+
+  static defaultProps = {
+    count: 0
+  };
+
   state = {
     count: this.props.count
   };
@@ -23,7 +33,7 @@ class Counter extends Component {
 
 const SuperCount = () => (
   <View>
-    <Counter count={1} />
+    <Counter count={10} />
   </View>
 );
 
