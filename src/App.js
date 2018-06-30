@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, Button } from 'react-native';
+import ContactList from './components/Contacts/ContactList';
 
 class Counter extends Component {
 
@@ -38,19 +39,20 @@ const SuperCount = () => (
 );
 
 const App = () => (
-  <View
-    style={
-      {
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }
-    }
-  >
-    <Text>Hello RN!!!!!</Text>
-    <SuperCount />
-  </View>
+  <ContactList />
+  // <View
+  //   style={
+  //     {
+  //       flex: 1,
+  //       flexDirection: 'column',
+  //       justifyContent: 'center',
+  //       alignItems: 'center'
+  //     }
+  //   }
+  // >
+  //   <Text>Hello RN!!!!!</Text>
+  //   <SuperCount />
+  // </View>
 )
 
 
