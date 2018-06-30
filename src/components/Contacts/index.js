@@ -9,7 +9,7 @@ class Contacts extends Component {
   };
 
   createContact = contact => {
-    const contacts = [...this.state.contacts, contact];
+    const contacts = [...this.state.contacts, { ...contact, id: this.state.contacts.length + 1 }];
     this.setState({ contacts });
   }
 

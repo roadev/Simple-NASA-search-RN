@@ -1,18 +1,13 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
-import ContactForm from '../ContactForm';
+import ContactCard from '../ContactCard';
 
 const ContactList = ({ contacts }) => (
   <View>
       {
         contacts.map(contact => (
-          <View>
-            <Text>{contact.name}</Text>
-            <Text>{contact.lastName}</Text>
-            <Text>{contact.age}</Text>
-            <Text>{contact.phone}</Text>
-          </View>
+          <ContactCard {...contact} key={contact.id} />
         ))
       }
   </View>
