@@ -8,6 +8,10 @@ class ContactForm extends Component {
     createContact: PropTypes.func.isRequired,
   }
 
+  static navigationOptions = {
+    title: 'Create Contact'
+  }
+
   state = {
     name: '',
     lastName: '',

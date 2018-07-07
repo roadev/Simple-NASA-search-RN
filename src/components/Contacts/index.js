@@ -4,6 +4,11 @@ import ContactList from './ContactList';
 import ContactForm from './ContactForm';
 
 class Contacts extends Component {
+
+  static navigationOptions = {
+    title: 'Contact List',
+  };
+
   state = {
     contacts: []
   };
@@ -29,7 +34,6 @@ class Contacts extends Component {
               )
           }
         />
-        {/* <ContactForm createContact={this.createContact} /> */}
       </View>
 
     )
