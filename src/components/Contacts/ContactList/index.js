@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
+import { Container, Content } from 'native-base';
 import ContactCard from '../ContactCard';
 
 const ContactList = ({ contacts }) => (

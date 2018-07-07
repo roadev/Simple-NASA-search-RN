@@ -17,7 +17,15 @@ class ContactForm extends Component {
 
   handleOnChange = (value, key) => this.setState({ [key]: value });
 
+  handleCreateContact = () => {
+    const { navigation } = this.props
+    const createContact = navigation.getParam('createContact');
+    createContact(this.state);
+    navigation.navigate('Contacts');
+  }
+
   render() {
+
     console.log(this.state);
     return (
       <View>
@@ -51,7 +59,7 @@ class ContactForm extends Component {
         </View>
         <Button
           title="Save"
-          onPress={() => this.props.createContact(this.state)}
+          onPress={this.handleCreateContact}
         />
       </View>
     );

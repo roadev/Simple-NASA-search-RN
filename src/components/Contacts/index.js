@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Button } from 'react-native';
 import ContactList from './ContactList';
 import ContactForm from './ContactForm';
 
@@ -14,10 +14,22 @@ class Contacts extends Component {
   }
 
   render() {
+    const { navigation } = this.props;
+
     return (
       <View>
         <ContactList contacts={this.state.contacts} />
-        <ContactForm createContact={this.createContact} />
+        <Button
+          title="Create contact"
+          onPress={
+            () =>
+              navigation.navigate(
+                'ContactForm',
+                { createContact: this.createContact },
+              )
+          }
+        />
+        {/* <ContactForm createContact={this.createContact} /> */}
       </View>
 
     )

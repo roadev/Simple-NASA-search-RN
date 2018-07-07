@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
-import { Container, Header, Content, Card, CardItem, Body, Text } from 'native-base';
+import { Card, CardItem, Body } from 'native-base';
 
 
 const ContactCard = ({ name, lastName, age, phone }) => (
