@@ -5,11 +5,15 @@ import ContactCard from '../ContactCard';
 
 const ContactList = ({ contacts }) => (
   <View>
+    <Container>
+      <Content>
       {
         contacts.map(contact => (
           <ContactCard {...contact} key={contact.id} />
         ))
       }
+    </Content>
+  </Container>
   </View>
 );
 
