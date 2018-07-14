@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, Button } from 'react-native';
+import { View, TextInput, Button, AsyncStorage } from 'react-native';
 import PropTypes from 'prop-types';
 
 class ContactForm extends Component {
@@ -21,11 +21,28 @@ class ContactForm extends Component {
 
   handleOnChange = (value, key) => this.setState({ [key]: value });
 
-  handleCreateContact = () => {
+  handleCreateContact = async () => {
     const { navigation } = this.props
-    const createContact = navigation.getParam('createContact');
-    createContact(this.state);
+    // const createContact = navigation.getParam('createContact');
+    const contact = this.state;
+    const contacts = await AsyncStorage.getItem('contacts');
+    console.log('contacts async', contacts);
+    if (contacts) {
+      const contactsList = JSON.parse(contacts);
+      await AsyncStorage.setItem('contacts', JSON.stringify(contactsList.concat({ ...contact, id: contactsList.length + 1 })));
+      navigation.navigate('Contacts');
+    } else {
+      console.log([JSON.stringify(contact)]);
+      await AsyncStorage.setItem('contacts', JSON.stringify([{ ...contact, id: 1 }]));
+      navigation.navigate('Contacts');
+    }
     navigation.navigate('Contacts');
+    // AsyncStorage.setItem('contacts', JSON.stringify(contact))
+    //   .then(() => {
+    //     navigation.navigate('Contacts');
+    //   })
+    // createContact(this.state);
+
   }
 
   render() {

@@ -5,17 +5,16 @@ import { Container, Content } from 'native-base';
 import ContactCard from '../ContactCard';
 
 const ContactList = ({ contacts }) => (
-  <View>
-    <Container>
-      <Content>
-      {
+  // <Container>
+    //
         contacts.map(contact => (
           <ContactCard {...contact} key={contact.id} />
         ))
-      }
-    </Content>
-  </Container>
-  </View>
+
+    // </Content>
+
+
+  // </Container>
 );
 
 ContactList.propTypes = {
