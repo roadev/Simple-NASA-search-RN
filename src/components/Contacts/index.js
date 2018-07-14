@@ -17,22 +17,6 @@ class Contacts extends Component {
     isLoading: false
   };
 
-  async componentDidMount() {
-    // const contacts = await AsyncStorage.getItem('contacts');
-    // const results = await fetch();
-    // const resultsJson = await results.json();
-    // console.log(resultsJson.collection.items);
-    // this.setState({
-    //   results: resultsJson.collection.items.map(i => (
-    //     { name: i.data[0].title, image: i.links[0].href }
-    //   ))
-    // });
-    // console.log('contacts', contacts);
-    // if (contacts) {
-    //   this.setState({ contacts: JSON.parse(contacts) });
-    // }
-  }
-
   handleSearch = async () => {
     this.setState({ isLoading: true });
     const response = await api.searchPlanets(this.state.searchText);
@@ -62,7 +46,7 @@ class Contacts extends Component {
               //   )
             }
           />
-          
+
           {this.state.isLoading ? (<Spinner />) : <ContactList contacts={results} />}
         </Content>
 
