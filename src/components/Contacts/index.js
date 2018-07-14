@@ -34,11 +34,12 @@ class Contacts extends Component {
   }
 
   handleSearch = async () => {
+    this.setState({ isLoading: true });
     const response = await api.searchPlanets(this.state.searchText);
     const results = response.data.collection.items.slice(0, 20).map(i => (
             { name: i.data[0].title, image: i.links[0].href }
           ))
-    this.setState({ results });
+    this.setState({ results, isLoading: false });
   }
 
   handleChangeSearchText = searchText => this.setState({ searchText });
@@ -50,19 +51,19 @@ class Contacts extends Component {
     return (
       <Container>
         <Content padder>
+          <TextInput onChangeText={this.handleChangeSearchText} value={this.state.searchText} />
+          <Button
+            title="NASA search"
+            onPress={
+              this.handleSearch
+              // () =>
+              //   navigation.navigate(
+              //     'ContactForm',
+              //   )
+            }
+          />
+          
           {this.state.isLoading ? (<Spinner />) : <ContactList contacts={results} />}
-
-            <TextInput onChangeText={this.handleChangeSearchText} value={this.state.searchText} />
-            <Button
-              title="NASA search"
-              onPress={
-                this.handleSearch
-                // () =>
-                //   navigation.navigate(
-                //     'ContactForm',
-                //   )
-              }
-            />
         </Content>
 
       </Container>
