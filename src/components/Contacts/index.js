@@ -16,20 +16,21 @@ class Contacts extends Component {
 
   async componentDidMount() {
     const contacts = await AsyncStorage.getItem('contacts');
-    console.log('contacts', JSON.parse(contacts));
-    this.setState({ contacts: JSON.parse(contacts) });
-
+    console.log('contacts', contacts);
+    if (contacts) {
+      this.setState({ contacts: JSON.parse(contacts) });
+    }
   }
 
   render() {
     const { navigation } = this.props;
     console.log('state', this.state.contacts);
     const { contacts } = this.state;
-
     return (
-      <View>
+      <Container>
+    <Content padder>
             <ContactList contacts={contacts} />
-            {/* <Button
+            <Button
               title="Create contact"
               onPress={
                 () =>
@@ -37,10 +38,11 @@ class Contacts extends Component {
                     'ContactForm',
                   )
               }
-            /> */}
+            />
+  </Content>
 
+</Container>
 
-      </View>
 
     )
   }

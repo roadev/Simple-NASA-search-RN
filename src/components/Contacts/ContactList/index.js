@@ -1,20 +1,17 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
-import { Container, Content } from 'native-base';
+import { Container, Content, Body } from 'native-base';
 import ContactCard from '../ContactCard';
 
 const ContactList = ({ contacts }) => (
-  // <Container>
-    //
-        contacts.map(contact => (
-          <ContactCard {...contact} key={contact.id} />
-        ))
 
-    // </Content>
+      contacts.map(contact => (
+            <ContactCard {...contact} key={contact.id} />
+          ))
 
 
-  // </Container>
+
 );
 
 ContactList.propTypes = {
