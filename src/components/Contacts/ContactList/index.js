@@ -1,16 +1,17 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 import { Container, Content, Body } from 'native-base';
 import ContactCard from '../ContactCard';
 
 const ContactList = ({ contacts }) => (
-
-      contacts.map(contact => (
-            <ContactCard {...contact} key={contact.id} />
-          ))
-
-
+  <FlatList
+    data={contacts}
+    renderItem={({ item }) => item.image ? (<ContactCard {...item} />) : null}
+  />
+    // contacts.map(contact => (
+    //   <ContactCard {...contact} key={contact.id} />
+    // ))
 
 );
 

@@ -7,7 +7,15 @@ const api = create({
 
 class Api {
     async searchPlanets(searchText) {
-        const response = api.get(`/search?q=${searchText}`)
+      try {
+        console.log(searchText);
+        const response = await api.get(`/search?q=${searchText}`);
+        console.log(response);
+        return response;
+      } catch (e) {
+        throw new Error(e);
+      }
+
     }
 }
 
