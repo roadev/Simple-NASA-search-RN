@@ -1,6 +1,6 @@
 {
   "name": "DevhackRN",
-  "version": "0.0.1",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -15,8 +15,15 @@
     "react-navigation": "^2.6.2"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "babel-jest": "23.0.1",
     "babel-preset-react-native": "4.0.0",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-import-resolver-reactnative": "^1.0.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
     "jest": "23.1.0",
     "react-test-renderer": "16.3.1"
   },
