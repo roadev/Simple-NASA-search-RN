@@ -15,7 +15,7 @@ export default class extends Component {
     const { email, password, navigation } = this.state;
     firebase
       .auth()
-      .signInWithEmailAndPassword(email, password)
+      .signInAndRetrieveDataWithEmailAndPassword(email, password)
       .then(() => navigation.navigate('App'))
       .catch(error => this.setState({ errorMessage: error.message }));
   }

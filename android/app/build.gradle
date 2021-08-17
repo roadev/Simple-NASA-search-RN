@@ -17,13 +17,17 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "27.0.3"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    // compileSdkVersion 26
+    // buildToolsVersion "27.0.3"
 
     defaultConfig {
         applicationId "com.devhackrn"
-        minSdkVersion 16
-        targetSdkVersion 26
+        // minSdkVersion 16
+        // targetSdkVersion 26
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 3
         versionName "1.2.0"
         ndk {
@@ -74,7 +78,7 @@ dependencies {
     compile project(':react-native-vector-icons')
     implementation project(':react-native-firebase')
     compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:23.0.1"
+    compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     compile "com.facebook.react:react-native:+"  // From node_modules
     implementation "com.google.android.gms:play-services-base:15.0.1"
     implementation 'com.google.firebase:firebase-core:16.0.1'

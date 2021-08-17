@@ -12,19 +12,19 @@ const MainNavigator = createStackNavigator(
   },
 );
 
-const AppNavigator = createSwitchNavigator(
-  {
-    Login,
-    App: MainNavigator,
-  },
-  {
-    initialRouteName: 'Login',
-  },
-);
+// const AppNavigator = createSwitchNavigator(
+//   {
+//     Login,
+//     App: MainNavigator,
+//   },
+//   {
+//     initialRouteName: 'Login',
+//   },
+// );
 
 const App = () => (
   <Root>
-    <AppNavigator />
+    <MainNavigator />
   </Root>
 
 );
